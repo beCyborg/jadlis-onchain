@@ -1,0 +1,45 @@
+{
+  "skill_name": "onchain",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "tron-exchange-wallet",
+      "prompt": "Что за адрес TMuA6YqfCeX8EhbfYEg5y7S4DqzSJireY9 в Троне: это биржа? Что на нём лежит и с кем он чаще всего работает?",
+      "expected_output": "Binance identified through named label sources, TRX and USDT balances, labelled top counterparties, one cross-checked number.",
+      "files": [],
+      "expectations": [
+        "Identifies the address as a Binance wallet and names the label source (Tronscan tag such as \"Binance-Cold 1\" and/or the crypttrace label), framed as a label rather than proven ownership",
+        "Reports the USDT balance read from the token contract or Tronscan, not only the TRX balance",
+        "Lists the main counterparties and labels the ones that carry a known tag",
+        "Cross-checks at least one number against a second source and names both sources"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "sanctioned-evm-address",
+      "prompt": "Чей адрес 0x098B716B8Aaf21512996dC57EB0615e2383E2f96, в каких сетях он активен и под санкциями ли он?",
+      "expected_output": "Sanctions/exploit labels with their source, activity across EVM chains with Ethereum as the only chain with outgoing transactions, dust elsewhere treated as dust.",
+      "files": [],
+      "expectations": [
+        "Reports the sanctions / Ronin Bridge exploiter labels and names their source (e.g. Blockscout metadata OFAC tag, crypttrace label), framed as labels",
+        "Checks at least four EVM chains besides Ethereum and states that outgoing transactions exist only on Ethereum",
+        "Treats the small balances or tokens found on other chains as possible dust or spam rather than meaningful holdings",
+        "Mentions that its USDT/USDC is blocked by the issuer or checks the freeze status"
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "base-fallback-and-contract-id",
+      "prompt": "Есть ли что-то у 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 в сети Base? И что за контракт 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2?",
+      "expected_output": "Base checked through a keyless source (not reported empty because of a paid-plan refusal); 0xC02a… identified as the WETH contract.",
+      "files": [],
+      "expectations": [
+        "Does not conclude that Base is empty from an Etherscan/crypttrace free-plan refusal; checks Base through a public RPC and names the source",
+        "Reports that the address has no outgoing transactions and no native balance on Base (nonce 0)",
+        "States that Base transfer history was not checked (needs a paid key) instead of implying a complete check",
+        "Identifies 0xC02aaA39… as the WETH (Wrapped Ether) smart contract on Ethereum, verified through an API (contract name or explorer metadata), not as a person or wallet",
+        "Explains that on Base WETH lives at 0x4200…0006 and 0xC02aaA39… is not WETH there"
+      ]
+    }
+  ]
+}

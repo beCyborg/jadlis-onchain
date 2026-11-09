@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "jadlis-onchain",
+  "version": "1.0.0",
+  "displayName": "Onchain — разбор адресов Tron и EVM",
+  "description": "Скилл /onchain: разбор крипто-адресов и транзакций в Tron (TRX, USDT TRC-20) и EVM-сетях (Ethereum ERC-20, Polygon, Arbitrum, Base, Optimism, BSC) только на чтение — метки бирж и санкций, куда ушли деньги, балансы, связи между адресами, отравление адресов, разрешения на списание. Работает на CLI crypttrace и бесплатных API Etherscan V2, TronGrid, Tronscan, Blockscout через шлюз, который сам подставляет ключи и не печатает их.",
+  "author": {
+    "name": "Be Cyborg"
+  },
+  "homepage": "https://github.com/beCyborg/jadlis-onchain",
+  "repository": "https://github.com/beCyborg/jadlis-onchain",
+  "license": "MIT",
+  "keywords": ["crypto", "blockchain", "tron", "ethereum", "usdt", "osint", "aml"]
+}
