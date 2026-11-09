@@ -56,13 +56,11 @@ On Linux, instead of step 4 set `ETHERSCAN_API_KEY`, `TRONSCAN_API_KEY`, `TRONGR
 
 ## Using it
 
-Paste an address or a transaction hash into Claude Code and ask:
+Paste an address or a transaction hash into Claude Code and ask. The examples use public, widely known addresses:
 
-```
-Check TMuA6YqfCeX8EhbfYEg5y7S4DqzSJireY9: is it an exchange, what does it hold?
-Whose address is 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 and is it sanctioned?
-Where did the USDT from T… go? Are there exchanges among the recipients?
-```
+- `Check TMuA6YqfCeX8EhbfYEg5y7S4DqzSJireY9: is it an exchange, what does it hold?` (a Binance cold wallet on Tron, Tronscan tag "Binance-Cold 1")
+- `Whose address is 0x098B716B8Aaf21512996dC57EB0615e2383E2f96 and is it sanctioned?` (the Ronin bridge exploiter on Ethereum, 2022 hack; the address is on the US OFAC sanctions list)
+- `Where did the USDT from T… go? Are there exchanges among the recipients?` (replace `T…` with any Tron address)
 
 The skill picks the chain from the address format. The answer opens with a verdict per address, followed by a table, money flows and explorer links. Facts and inferences are labelled separately.
 
